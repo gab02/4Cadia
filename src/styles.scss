@@ -2,10 +2,10 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
+// Plus imports for other components in your fintech.
 
 // Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
+// have to load a single css file for Angular Material in your fintech.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
@@ -15,6 +15,9 @@
 $fintech-primary: mat-palette($mat-indigo);
 $fintech-accent: mat-palette($mat-pink, A200, A100, A400);
 
+$fintech-dark-primary: mat-palette($mat-purple);
+$fintech-dark-accent: mat-palette($mat-green, A200, A100, A400);
+$fintech-dark-theme: mat-dark-theme($fintech-dark-primary, $fintech-dark-accent);
 // The warn palette is optional (defaults to red).
 $fintech-warn: mat-palette($mat-red);
 
@@ -27,14 +30,20 @@ $fintech-theme: mat-light-theme((
     warn: $fintech-warn,
   )
 ));
-
-// Include theme styles for core and each component used in your app.
+.dark-theme {
+  @include angular-material-theme($fintech-dark-theme);
+}
+// Include theme styles for core and each component used in your fintech.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($fintech-theme);
 
 /* You can add global styles to this file, and also import other style files */
+html {
+  width: auto;
+  height: auto;
+ // background-image: linear-gradient(to right, #d99058, #f8de7e );
+}
 
-
-html, body { height: 100%; font-size: 64.5%; }//Tamanho de fonte usado para ficar de acordo com a acessibilidade do browser }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: auto; overflow-x: hidden;}
+body { margin: 0;  }
