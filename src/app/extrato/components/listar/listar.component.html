@@ -1,124 +1,121 @@
-<mat-card  style="font-family: 'Poppins', sans-serif; " class="example-card" style=" height: 102%; width: 103%; margin-left: -1.5%;">
-
-    <div class="container" >
-      <br>  <br>
-      <mat-card  style="font-family: 'Poppins', sans-serif; " class="example-card" style=" height: 70%;">
-
-
-        <mat-card-content style="font-family: 'Poppins', sans-serif;">
-          <div class="container">
-            <div class="row">
-             <h2 style="text-align: center;"><b> Extrato bancario
-             </b></h2>        </div>
-            <hr style="color: black; width: 100%;" />
-
-
-
-
-            <div class="row">
-              <div class="col-md-6">
-<BR><BR>
-                Para Garantir a autenticidade, é necessário que informe seu cpf:             </div>
-
-                <div class="col-md-6">
-                    <div class="row">
-                        <mat-form-field  class="example-full-width">
-                      <mat-label>CPF:</mat-label>
-                      <input [formControl]="selectControl" matInput type="text" >
-                    </mat-form-field>
-
-
-                  </div>
-
-
-                    <div class="row">
-                       <button mat-stroked-button (click)="cpf()" color="primary">Validar CPF</button>
-
-                    </div>
-                 </div>
-
-            </div>
-
-
-          </div>
-        </mat-card-content>
-
-      </mat-card>
-      <br><br>
-    <mat-card  style="font-family: 'Poppins', sans-serif; " class="example-card" style=" height: 70%;">
-
-
-      <mat-card-content style="font-family: 'Poppins', sans-serif;">
+<mat-card
+  style="font-family: 'Poppins', sans-serif"
+  class="example-card"
+  style="height: 102%; width: 103%; margin-left: -1.5%"
+>
+  <div class="container">
+    <br />
+    <br />
+    <mat-card
+      style="font-family: 'Poppins', sans-serif"
+      class="example-card"
+      style="height: 70%"
+    >
+      <mat-card-content style="font-family: 'Poppins', sans-serif">
         <div class="container">
           <div class="row">
-           <b> Saldo:
-    </b>        </div>
-          <hr style="color: black; width: 100%;" />
+            <h2 style="text-align: center"><b> Extrato bancario </b></h2>
+          </div>
+          <hr style="color: black; width: 100%" />
 
+          <div class="row">
+            <div class="col-md-6">
+              <BR /><BR /> Para Garantir a autenticidade, é necessário que
+              informe seu cpf:
+            </div>
 
+            <div class="col-md-6">
+              <div class="row">
+                <mat-form-field class="example-full-width">
+                  <mat-label>CPF:</mat-label>
+                  <input [formControl]="selectControl" matInput type="text" />
+                </mat-form-field>
+              </div>
 
+              <div class="row">
+                <button mat-stroked-button (click)="cpf()" color="primary">
+                  Validar CPF
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <br /><br />
+    <mat-card
+      style="font-family: 'Poppins', sans-serif"
+      class="example-card"
+      style="height: 70%"
+    >
+      <mat-card-content style="font-family: 'Poppins', sans-serif">
+        <div class="container">
+          <div class="row">
+            <b> Saldo: </b>
+          </div>
+          <hr style="color: black; width: 100%" />
 
           <div class="row">
             <div class="col-md-10" *ngIf="moneyVisible === true">
-           R$: 1.000.000,00
-           </div>
-           <div class="col-md-10" *ngIf="moneyVisible === false">
-            R$: -
+              R$: 1.000.000,00
             </div>
-           <div class="col-md-2">
-            <button type="button" mat-button><mat-icon (click)="money()">remove_red_eye</mat-icon></button>
-
-             </div>
+            <div class="col-md-10" *ngIf="moneyVisible === false">R$: -</div>
+            <div class="col-md-2">
+              <button type="button" mat-button>
+                <mat-icon (click)="money()">remove_red_eye</mat-icon>
+              </button>
+            </div>
           </div>
-
         </div>
       </mat-card-content>
-
     </mat-card>
-    </div>
-    <br><br>
+  </div>
+  <br /><br />
 
-    <mat-card  style="font-family: 'Poppins', sans-serif; " class="example-card" >
-
-    <mat-card-content style="font-family: 'Poppins', sans-serif;">
+  <mat-card style="font-family: 'Poppins', sans-serif" class="example-card">
+    <mat-card-content style="font-family: 'Poppins', sans-serif">
       <div *ngIf="validado === false">
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
       <div *ngIf="validado === true">
-      <table  style="font-family: 'Poppins', sans-serif; "  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+        <table
+          style="font-family: 'Poppins', sans-serif"
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8"
+        >
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
 
           <!-- Position Column -->
           <ng-container matColumnDef="dia">
-            <th mat-header-cell *matHeaderCellDef><b>  DATA</b> </th>
-            <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+            <th mat-header-cell *matHeaderCellDef><b> DATA</b></th>
+            <td mat-cell *matCellDef="let element">{{ element.dia }}</td>
           </ng-container>
 
           <!-- Name Column -->
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> <b> Nome </b></th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <th mat-header-cell *matHeaderCellDef><b> Nome </b></th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
           </ng-container>
 
           <!-- Weight Column -->
           <ng-container matColumnDef="qtd">
-            <th mat-header-cell *matHeaderCellDef> <b> Valor</b> </th>
-            <td mat-cell *matCellDef="let element"> {{element.qtd}} </td>
+            <th mat-header-cell *matHeaderCellDef><b> Valor</b></th>
+            <td mat-cell *matCellDef="let element">{{ element.qtd }}</td>
           </ng-container>
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="method">
-            <th mat-header-cell *matHeaderCellDef> <b> Método de transferência</b> </th>
-            <td mat-cell *matCellDef="let element"> {{element.method}} </td>
+            <th mat-header-cell *matHeaderCellDef>
+              <b> Método de transferência</b>
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.method }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-</div>
-    </mat-card-content>
-
-    </mat-card></mat-card>
+      </div>
+    </mat-card-content> </mat-card
+></mat-card>
