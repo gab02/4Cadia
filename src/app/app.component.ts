@@ -11,10 +11,11 @@ export class AppComponent implements OnInit {
   showFiller = false;
   ValorLogin: boolean = false;
   hasToggledTheme = false;
+
   //https://stackblitz.com/edit/dark-theme-so?file=app%2Fapp.component.ts
 
 
-  constructor(private router: Router){}
+  constructor(private router: Router){this.ValorLogin = false}
 ngOnInit(){
   this.ValorLogin = false;
 }
@@ -22,12 +23,16 @@ ngOnInit(){
 inicio(){
   this.router.navigate(['saldo']);
 }
+extrato(){
+  this.router.navigate(['extrato']);
+}
 
 login(){
     this.router.navigate(['login']);
     this.ValorLogin = false;
 
   }
+  //preto
   toggleTheme() {
     this.hasToggledTheme = !this.hasToggledTheme;
   }
